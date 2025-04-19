@@ -1,0 +1,7 @@
+@media(max-width:768px){
+    body{
+        background-color: #a6fbf1;
+        color: #000;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
