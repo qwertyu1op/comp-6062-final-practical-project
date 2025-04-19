@@ -3,12 +3,94 @@
     <head>
         <title>1163212</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css?">
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
-        <header><h1>Nihal Brarath 1163212</h1></header>
-        <main></main>
+    <body id="app">
+        <header>
+            <h1>{{fullName}}</h1>
+        </header>
+        <main>
+            <div >
+                <div class="styleProfile">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12"><h2>User Profile</h2></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    
+                                    <div class="col-lg-4"><p>{{profile.userName}}</p></div>
+                                    <div class="col-lg-4"><p>Age: {{profile.age}}</p></div>
+                                    <div class="col-lg-4"><button @click="fetchRandUser">New Profile</button></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-8"><img :src="profile.picture" alt="RANDOM_IMG" width="150"/></div>
+                           
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12"><h2>Weather Information</h2></div>
+                    </div>
+                    
+                    <form @submit.prevent="fetchWeather">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="text" placeholder="City" required v-model="weatherData.city" >
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Province" required v-model="weatherData.province" >
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Country" required v-model="weatherData.country" >
+                            </div>
+                            <div class="col-md-3">
+                                <button @click="fetchWeather" type="submit">Get Weather</button>
+                            </div>
+                             
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>{{weatherData.temperature}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>{{weatherData.wind}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p>{{weatherData.description}}</p>
+                        </div> 
+                    </div>
+                     
+                </div>
+                 
+                <div class="styleDict">
+                    <div class="row">
+                        <h2>Dictionary</h2>
+                        <div class="col-lg-8">
+                            <input type="text" v-model="dictResult.word">
+                        </div>
+                        <div class="col-lg-4">
+                            <button @click="checkDict" type="submit">Define</button>
+                        </div>     
+                    </div>
+                    <div class="row">
+                        <p>{{dictResult.word}}</p>
+                        <p>{{dictResult.phonetic}}</p>
+                        <p>{{dictResult.definition}}</p>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
         <footer> &copy;Nihal Brarath 2025</footer>
+        <script src="https://unpkg.com/vue@3.4.31/dist/vue.global.js"></script>
         <script src="scripts/app.js"></script>
     </body>
 </html>
